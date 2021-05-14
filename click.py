@@ -73,6 +73,7 @@ def is_in_time_range(hour, minute, second):
     m = datetime.now().minute
     s = datetime.now().second
 
+
     if h == hour and m == minute and second - 1 <= s <= second + 3:
         return True
     else:
