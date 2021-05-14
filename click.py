@@ -1,7 +1,5 @@
 import configparser
 import time
-from collections import OrderedDict
-from pprint import pprint
 
 from pymouse import PyMouse
 from pykeyboard import PyKeyboard
@@ -75,7 +73,7 @@ def is_in_time_range(hour, minute, second):
     m = datetime.now().minute
     s = datetime.now().second
 
-    if h == hour and m == minute and second - 3 <= s <= second + 3:
+    if h == hour and m == minute and second - 1 <= s <= second + 3:
         return True
     else:
         return False
@@ -89,13 +87,11 @@ def main():
         for each_config in config_list:
             hour, minute, second = each_config[0]
             key_times_list = each_config[1]
-            print(hour, minute, second)
-            print(key_times_list)
 
             time_flag = is_in_time_range(hour, minute, second)
             if time_flag:
                 press_key_custom(key_times_list)
-                time.sleep(3)
+                time.sleep(4)
 
 
 if __name__ == '__main__':
